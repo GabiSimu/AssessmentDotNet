@@ -1,0 +1,28 @@
+﻿@model WebApplication1.ViewModels.RandomVehicleViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ 
+    var className = Model.Owner.Count > 0 ? "popular" : null;
+}
+
+<h2 class="@className"> Owners </h2>
+
+
+    <ul>
+        @foreach (var customer in Model.Owner)
+        {
+            <li>@customer.FirstName @customer.LastName @customer.DriverLicence</li>
+        }
+    </ul>
+
+
+    <h2 class="@className"> Vehicles </h2>
+<ul>
+    @foreach (var car in Model.Vehicle)
+    {
+        <li>@car.Brand @car.Color @car.Year</li>
+    }
+</ul>

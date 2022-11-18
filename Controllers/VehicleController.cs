@@ -9,29 +9,29 @@ using WebApplication1.ViewModels;
 
 namespace WebApplication1.Controllers
 {
-    public class MoviesController : Controller
+    public class VehicleController : Controller
     {
-        // GET: Movies
+        // GET: Vehicles
         public ActionResult Random()
         {
-            var movie = new Movies() { Name = "Pe aripile vantului" };
-            // return View(movie);
 
-            // return Content("Hello World");
 
-            // return HttpNotFound();
-            //   return new EmptyResult();
-
-            var customers = new List<Customer>
+            var vehicles = new List<Vehicle>
             {
-                new Customer { Name = "Customer 1"},
-                new Customer { Name = "Customer 2" }
+                new Vehicle {Brand= "BMW", Color = "Blue", Year = "2022"},
+                new Vehicle {Brand = "Ferrari", Color = "Read", Year = "2022"}
             };
 
-            var viewModel = new RandomMovieViewModel
+            var owners = new List<Owner>
             {
-                Movie = movie,
-                Customers = customers
+                new Owner { FirstName = "Donald"},
+                new Owner { FirstName = "Jack" }
+            };
+
+            var viewModel = new RandomVehicleViewModel
+            {
+                Vehicle = vehicles,
+                Owner = owners
             };
 
             var viewResult = new ViewResult();
@@ -50,7 +50,7 @@ namespace WebApplication1.Controllers
             if (!pageIndex.HasValue)
                 pageIndex = 1;
             if(string.IsNullOrWhiteSpace(sortBy))
-                sortBy = "name";
+                sortBy = "FirstName";
             return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
         }
 

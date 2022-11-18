@@ -6,9 +6,9 @@ using WebApplication1.Models;
 
 namespace WebApplication1.ViewModels
 {
-    public class RandomMovieViewModel
+    public class RandomVehicleViewModel
     {
-        public Movies Movie { get; set; }
-        public List<Customer> Customers { get; set; }
+        public List <Vehicle> Vehicle { get; set; }
+        public List<Owner> Owner { get; set; }
     }
 }
